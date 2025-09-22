@@ -24,8 +24,6 @@ class ContactService {
       _id: ObjectId.isValid(id) ? new ObjectId(id) : null,
     });
   }
-   
-
 // 👇 Thêm hàm này vào
   extractContactData(payload) {
     const contact = {
@@ -43,7 +41,6 @@ class ContactService {
 
     return contact;
   }
-
 async update(id, payload) {
   const filter = {
     _id: ObjectId.isValid(id) ? new ObjectId(id) : null,
@@ -70,20 +67,12 @@ async delete(id) {
   });
   return result;
 }
-
 async findFavorite() {
   return await this.find({ favorite: true });
 }
-
 async deleteAll() {
   const result = await this.collection.deleteMany({});
   return result.deletedCount;   // số documents bị xoá
 }
-
-
-
-
 }
-
-
 module.exports = ContactService;
